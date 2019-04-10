@@ -12,5 +12,8 @@ If you decide to shutdown the container, you have to type `docker-compose down` 
 
 ---
 
+#### Important
+Before we run the container, we need to manually create a new database on our machine. To not to go to the _postgres_ prompt, we can create a new database using command line. For example: `createdb -h localhost -p 5432 -U <username> <db_name>`. And then, we will be able to iteract with a created datbase. **However!** If you used another database before creating a new one, or you just decided to switch to another database, you'll need to RESET your container **postgres volumes**. To do that, you need to type `docker-compose down -v` in your terminal. It will destroy the container, its network and all specified volumes inside the container. After that, we can easily rerun the container `docker-compose up -d` with new applied database.
+
 **P.S.**
 I'm intended to use 8001 port, because I have working Nginx in my machine, that works on 8000 port.
